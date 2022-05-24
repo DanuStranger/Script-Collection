@@ -4,17 +4,14 @@ email:awakening021@gmail.com
 ]]
       local Library =
             loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-        local Window = Library.CreateLib("Danu Stranger | script collection | v0.6 |", "Midnight")
+        local Window = Library.CreateLib("Danu Stranger | Script Collection | v0.9 |", "Midnight")
 
         -- MAIN
         local Main = Window:NewTab("Main")
         local MainSection = Main:NewSection("Main")
 
-MainSection:NewButton("Gas Station Simulator", "P - Auto Refuel
-L - Auto Cashier
-M - Auto Clean
-Z - Auto Restock", function()
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/LOLking123456/ophello-/main/dwnjioanuiowd'),true))()
+MainSection:NewButton("Gas Station Simulator", "Ez task", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/ophello-/main/dwnjioanuiowd", true))()
 end)
 
  MainSection:NewSlider("BTools", "BTools", function()
@@ -36,15 +33,12 @@ grabTool.BinType = 2
 grabTool.Parent = backpack
 end)
         
+        
         local Teleports = Window:NewTab("Teleports")
         local TeleportsSection = Teleports:NewSection("Teleports")
         
-        TeleportsSection:NewButton("Rejoin Server", "Rejoin Server", function()
-local ts = game:GetService("TeleportService")
-local p = game:GetService("Players").LocalPlayer
-
-TeleportsSection:NewButton("tp (left alt), "Tp(left alt)", function()
-_G.KEY = "LeftAlt"
+        TeleportsSection:NewButton("Tp (left alt)", "Tp (left alt)", function()
+ _G.KEY = "LeftAlt"
 local UIS = game:GetService("UserInputService")
 UIS.InputBegan:connect(function(Input)
 local KeyCode = Input.KeyCode
@@ -59,12 +53,88 @@ end
 end)
 end)
 
+TeleportsSection:NewButton("Follow Player", "Click The Cursor On Another Player", function()
+
+local targetmode = true
+local currenttarget = "Nobody"
+
+function settarget(tar)
+currenttarget = tar.Name
+end
+
+function removetarget()
+if game.Players[currenttarget].noclip then
+game.Players[currenttarget].noclip:Destroy()
+end
+end
+
+function noclip(plr)
+admintag = Instance.new("BoolValue")
+    admintag.Parent = game.Players[plr]
+    admintag.Value = true
+    admintag.Name = "noclip"
+end
+function follow(char)
+noclip(char.Name)
+
+
+
+                                    game:GetService('RunService').Stepped:connect(function()
+if game.Players[char.Name]:FindFirstChild("noclip") and game.Players[char.Name].Character ~= nil then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame * CFrame.new(0,0,2)
+wait(0.001)
+end
+    end) 
+
+end
+
+
+
+local epic = Instance.new("Tool")
+local dab = Instance.new("Part")
+local plr = game.Players.LocalPlayer
+local tar_obj = nil
+dab.Parent = epic
+dab.Size = Vector3.new(0.2, 0.2, 0.2)
+epic.Parent = plr.Backpack
+epic.Name = "Follow"
+dab.Name = "Handle"
+epic.Equipped:Connect(function(m_S)
+
+    
+m_S.Button1Down:Connect(function()
+
+        
+tar_obj = m_S.Target
+dab = tar_obj.Parent
+
+if targetmode == true then
+follow(dab)
+settarget(dab)
+targetmode = false
+
+elseif targetmode == false then
+
+removetarget()
+targetmode = true
+end
+
+  
+
+    
+end)
+end)
+end)
+
+TeleportsSection:NewButton("Rejoin Server", "Rejoin Server", function()
+local ts = game:GetService("TeleportService")
+local p = game:GetService("Players").LocalPlayer
+
 ts:Teleport(game.PlaceId, p)
 end)
         
-              
         local Credits = Window:NewTab("Credits")
         local CreditsSection = Credits:NewSection("Credits")
         
-        CreditsSection:NewLabel("Made By: Legend HandlesYT")
+        CreditsSection:NewLabel("Made By: Danu Stranger")
         
