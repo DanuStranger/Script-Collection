@@ -1,4 +1,7 @@
-
+--[[
+If you find a bug or something wrong with this script, please let me know at:
+email:awakening021@gmail.com
+]]
       local Library =
             loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
         local Window = Library.CreateLib("Danu Stranger | script collection | v0.6 |", "Midnight")
