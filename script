@@ -1,32 +1,13 @@
---[[
-If you find a bug or something wrong with this script, please let me know at:
-email:awakening021@gmail.com
-]]
+
       local Library =
             loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-        local Window = Library.CreateLib("DanuStranger | All Script | v0.2 |", "Midnight")
+        local Window = Library.CreateLib("Danu Stranger | various scripts | v0.4 |", "Midnight")
 
         -- MAIN
         local Main = Window:NewTab("Main")
         local MainSection = Main:NewSection("Main")
 
-MainSection:NewButton("Anti AFK", "Anti AFK", function()
-	local Players = game:GetService("Players")
-	local GC = getconnections or get_signal_cons
-	if GC then
-		for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
-			if v["Disable"] then
-				v["Disable"](v)
-			elseif v["Disconnect"] then
-				v["Disconnect"](v)
-				else
-				print("")
-			end
-		end
-	end
-end)
-
-MainSection:NewButton("Tp (left alt)", "Tp (left alt)", function()
+MainSection:NewButton("Go To Spawn", "Teleports To Spawn", function()
 _G.KEY = "LeftAlt"
 local UIS = game:GetService("UserInputService")
 UIS.InputBegan:connect(function(Input)
@@ -40,9 +21,9 @@ hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
 end
 end
 end)
+end)
 
-
-MainSection:NewButton("BTools", "Btools", function()
+ MainSection:NewSlider("Bypass Speed", "Bypassed Speed", 40, 16, function()
 backpack = game:GetService("Players").LocalPlayer.Backpack
 
 hammer = Instance.new("HopperBin")
@@ -59,7 +40,8 @@ grabTool = Instance.new("HopperBin")
 grabTool.Name = "Grab"
 grabTool.BinType = 2
 grabTool.Parent = backpack
-
+end)
+        
         local Teleports = Window:NewTab("Teleports")
         local TeleportsSection = Teleports:NewSection("Teleports")
         
@@ -68,33 +50,10 @@ local ts = game:GetService("TeleportService")
 local p = game:GetService("Players").LocalPlayer
 
 ts:Teleport(game.PlaceId, p)
-end
-
+end)
+        
         local Credits = Window:NewTab("Credits")
         local CreditsSection = Credits:NewSection("Credits")
         
-        CreditsSection:NewLabel("Made By: DanuStranger")
-
-CreditsSection:NewButton("Join Discord Server", "Join Discord Server", function()
-local http = game:GetService('HttpService') 
-if toClipboard then
-	toClipboard('https://discord.gg/RHmg6Mkuf7')
-else
-end
-local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
-if req then
-	req({
-		Url = 'http://127.0.0.1:6463/rpc?v=1',
-		Method = 'POST',
-		Headers = {
-			['Content-Type'] = 'application/json',
-			Origin = 'https://discord.com'
-		},
-		Body = http:JSONEncode({
-			cmd = 'INVITE_BROWSER',
-			nonce = http:GenerateGUID(false),
-			args = {code = 'RHmg6Mkuf7'}
-		})
-	})
-end
-end) 
+        CreditsSection:NewLabel("Made By: Danu Stranger")
+        
