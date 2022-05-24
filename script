@@ -1,29 +1,20 @@
 
       local Library =
             loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-        local Window = Library.CreateLib("Danu Stranger | various scripts | v0.4 |", "Midnight")
+        local Window = Library.CreateLib("Danu Stranger | script collection | v0.6 |", "Midnight")
 
         -- MAIN
         local Main = Window:NewTab("Main")
         local MainSection = Main:NewSection("Main")
 
-MainSection:NewButton("Go To Spawn", "Teleports To Spawn", function()
-_G.KEY = "LeftAlt"
-local UIS = game:GetService("UserInputService")
-UIS.InputBegan:connect(function(Input)
-local KeyCode = Input.KeyCode
-if KeyCode == Enum.KeyCode[_G.KEY] then
-local plr = game:GetService('Players').LocalPlayer
-hum = plr.Character.HumanoidRootPart
-mouse = plr:GetMouse()
-if mouse.Target then
-hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
-end
-end
-end)
+MainSection:NewButton("Gas Station Simulator", "P - Auto Refuel
+L - Auto Cashier
+M - Auto Clean
+Z - Auto Restock", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/LOLking123456/ophello-/main/dwnjioanuiowd'),true))()
 end)
 
- MainSection:NewSlider("Bypass Speed", "Bypassed Speed", 40, 16, function()
+ MainSection:NewSlider("BTools", "BTools", function()
 backpack = game:GetService("Players").LocalPlayer.Backpack
 
 hammer = Instance.new("HopperBin")
@@ -49,6 +40,22 @@ end)
 local ts = game:GetService("TeleportService")
 local p = game:GetService("Players").LocalPlayer
 
+TeleportsSection:NewButton("tp (left alt), "Tp(left alt)", function()
+_G.KEY = "LeftAlt"
+local UIS = game:GetService("UserInputService")
+UIS.InputBegan:connect(function(Input)
+local KeyCode = Input.KeyCode
+if KeyCode == Enum.KeyCode[_G.KEY] then
+local plr = game:GetService('Players').LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+if mouse.Target then
+hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
+end
+end
+end)
+end)
+
 ts:Teleport(game.PlaceId, p)
 end)
         
@@ -57,3 +64,26 @@ end)
         
         CreditsSection:NewLabel("Made By: Danu Stranger")
         
+        CreditsSection:NewButton("Join Server Discord", "Join Server Discord", function()
+        local http = game:GetService('HttpService') 
+if toClipboard then
+	toClipboard('https://discord.gg/RHmg6Mkuf7')
+else
+end
+local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
+if req then
+	req({
+		Url = 'http://127.0.0.1:6463/rpc?v=1',
+		Method = 'POST',
+		Headers = {
+			['Content-Type'] = 'application/json',
+			Origin = 'https://discord.com'
+		},
+		Body = http:JSONEncode({
+			cmd = 'INVITE_BROWSER',
+			nonce = http:GenerateGUID(false),
+			args = {code = 'RHmg6Mkuf7'}
+		})
+	})
+end
+end) 
