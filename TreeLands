@@ -1,9 +1,12 @@
+--Created by EnzoTDZ_YT
+--Date created 4/28/2017
+--Combine 2 apples in one bin then run
 --(In the first line where you see "Apple" change it to whatever item you want to use for selling. In my case for the video I changed it to Pineapple.)
 
 --(This is a list of all items that you can use: 
 --Apple • Banana • Blackberry Bundle • Blueberry • Durian • Green Apple • Kiwi • Large Banana • Horned Melon • Kumquat • Lemon • Mango • Orange • Papaya • Peach • Pear • Pineapple • Plum • Pomelo • Potato • Watermelon • Purple Crystal • Orange Crystal • Blue Crystal • Green Crystal • Red Crystal)
 
---COPY TEXT BELOW TO USE
+--Combine as many apples as you want, copy text below to use
 
 local desiredFruit = "Apple"
 for i, v in pairs(game.Workspace.Fruits:GetChildren()) do
