@@ -1,12 +1,15 @@
 --Created by EnzoTDZ_YT
 --Date created 4/28/2017
 --Combine 2 apples in one bin then run
+
+local xd = game.Workspace.Fruits
+xd.Apple.CombinedValue.Value = 10000
+
+--Combine as many apples as you want or use the script above then execute the script below
 --(In the first line where you see "Apple" change it to whatever item you want to use for selling. In my case for the video I changed it to Pineapple.)
 
 --(This is a list of all items that you can use: 
 --Apple • Banana • Blackberry Bundle • Blueberry • Durian • Green Apple • Kiwi • Large Banana • Horned Melon • Kumquat • Lemon • Mango • Orange • Papaya • Peach • Pear • Pineapple • Plum • Pomelo • Potato • Watermelon • Purple Crystal • Orange Crystal • Blue Crystal • Green Crystal • Red Crystal)
-
---Combine as many apples as you want, copy text below to use
 
 local desiredFruit = "Apple"
 for i, v in pairs(game.Workspace.Fruits:GetChildren()) do
